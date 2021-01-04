@@ -1,6 +1,6 @@
 # script.module.resolveurl.pluginsgr
 
-Greek Resolvers Extension for SMR
+Greek Resolvers for SMR
 
 1. Import SMR and the PluginsGR Extension to your addon.
 2. Call the resolveurl from your addon to resolve the Greek hosts.

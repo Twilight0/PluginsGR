@@ -39,7 +39,7 @@ class Star(ResolveUrl):
                 if not vid:
                     stream = re.search(r"videoPlayer\.onYouTubeIframeAPIReady\('([\w-]{11})'\);", res)
                     if stream:
-                        return 'plugin://plugin.video.youtube/play/?video_id={}'.format(stream.group(1))
+                        return 'plugin://plugin.video.youtube/play/?video_id={0}'.format(stream.group(1))
                     else:
                         raise ResolverError('Video not found')
                 else:
@@ -48,8 +48,12 @@ class Star(ResolveUrl):
                 raise ResolverError('Video not found')
         else:
             stream = re.search(r"'(http.+kaltura.+\.m3u8)'", res)
+            youtu = re.search(r'''videoId: ['"]([\w-]{11})['"]''', res)
             if stream:
                 stream = stream.group(1)
+            elif youtu:
+                stream = 'plugin://plugin.video.youtube/play/?video_id=' + youtu.group(1)
+                return stream
             else:
                 raise ResolverError('VOD stream not found')
 

@@ -11,7 +11,7 @@
 import json
 import re
 from six.moves import urllib_request, urllib_error
-from resolveurl import common
+from resolveurl import common, resolve
 from resolveurl.plugins.lib import helpers
 from resolveurl.resolver import ResolveUrl, ResolverError
 
@@ -33,6 +33,9 @@ class Ert(ResolveUrl):
             raise ResolverError('Video not found')
         else:
             iframe = iframe.group(1)
+
+        if 'youtube' in iframe:
+            return resolve(iframe)
 
         html = self.net.http_GET(iframe, headers=headers).content
         streams = re.findall(r'''(?:HLSLink|var stream(?:ww)?) = ['"](https.+)['"]''', html)
