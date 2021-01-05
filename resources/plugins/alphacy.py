@@ -27,9 +27,12 @@ class AlphaCY(ResolveUrl):
         res = self.net.http_GET(web_url, headers=headers).content
 
         stream = re.search(r'''['"](http.+(?:mp4|m3u8.+))['"]''', res)
+        signature = re.search(r'''signature=['"]([\w=]+)['"]''', res)
 
         if stream:
             stream = stream.group(1)
+            if signature:
+                stream = '?wmsAuthSign='.join([stream, signature.group(1)])
         else:
             raise ResolverError('Video not found')
 
