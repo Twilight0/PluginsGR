@@ -38,7 +38,7 @@ class Ert(ResolveUrl):
             return resolve(iframe)
 
         html = self.net.http_GET(iframe, headers=headers).content
-        streams = re.findall(r'''(?:HLSLink|var stream(?:ww)?) = ['"](https.+)['"]''', html)
+        streams = re.findall(r'''(?:HLSLink|var stream(?:ww)?) +?= ['"](https.+)['"]''', html)
 
         if not streams:
             raise ResolverError('Error in searching urls from within the html')
