@@ -1,6 +1,10 @@
+Version 0.0.6 (April 05, 2021)
+- Update skai
+- Add mega
+- Removed euronews
+
 Version 0.0.4 (January 18, 2021)
 - Updated ert
-
 
 Version 0.0.3 (January 05, 2021)
 - Updated alphacy

@@ -19,7 +19,7 @@ class Skai(ResolveUrl):
     name = 'skai'
     domains = ['skai.gr', 'skaitv.gr']
     pattern = r'(?://|\.)(skai(?:tv)?\.gr)/((?:live|episode|videos).*)'
-    player_url = 'http://videostream.skai.gr/'
+    player_url = 'https://videostream.skai.gr/skaivod/_definst_/mp4:skai/'
 
     def get_media_url(self, host, media_id):
 
@@ -43,7 +43,7 @@ class Skai(ResolveUrl):
                 raise ResolverError('Stream not found')
             else:
                 json_ = json.loads(data.group(1))
-                stream = ''.join([self.player_url, json_['episode'][0]['media_item_file'], '.m3u8'])
+                stream = ''.join([self.player_url, json_['episode'][0]['media_item_file'], '/chunklink.m3u8'])
 
         else:
 
