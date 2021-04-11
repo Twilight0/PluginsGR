@@ -1,3 +1,6 @@
+Version 0.0.7 (April 11, 2021)
+- Add highstream tv (until it gets merged upstream)
+
 Version 0.0.6 (April 05, 2021)
 - Update skai
 - Add mega
