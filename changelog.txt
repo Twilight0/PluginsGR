@@ -1,3 +1,6 @@
+Version 0.0.8 (April 14, 2021)
+- Add userload (until it gets merged upstream)
+
 Version 0.0.7 (April 11, 2021)
 - Add highstream tv (until it gets merged upstream)
 
