@@ -1,4 +1,4 @@
-Version 0.0.9 - 0.0.11 (April 16, 2021)
+Version 0.0.9 - 0.0.12 (April 16, 2021)
 - Improve userload plugin
 - Add wolfstream.tv (until it gets merged upstream)
 
